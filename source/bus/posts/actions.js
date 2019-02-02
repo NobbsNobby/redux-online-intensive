@@ -19,8 +19,5 @@ export const fetchPostsAsync = () => async (dispatch) => {
     const response = await api.posts.fetch();
     const result = await response.json();
 
-    console.log('-> response', response);
-    console.log('-> result', result);
-
     dispatch(fillPosts(result.data));
 };
