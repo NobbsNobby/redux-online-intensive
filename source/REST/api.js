@@ -11,8 +11,6 @@ export const api = {
                 body: JSON.stringify(userInfo),
             });
         },
-    },
-    login: {
         login (userInfo) {
             return fetch(`${MAIN_URL}/user/login`, {
                 method:  'POST',
