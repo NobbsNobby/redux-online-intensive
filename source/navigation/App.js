@@ -9,19 +9,38 @@ import { withRouter } from 'react-router-dom';
 import Private from './Private';
 import Public from './Public';
 
+// Components
+import Loading from '../components/Loading';
+
+// Actions
+import { authActions } from '../bus/auth/actions';
+
 const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.auth.get('isAuthenticated'),
+        isInitialized:   state.auth.get('isInitialized'),
     };
+};
+
+const mapDispatchToProps = {
+    initializeAsync: authActions.initializeAsync,
 };
 
 @hot(module)
 @withRouter
-@connect(mapStateToProps)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class App extends Component {
-    render () {
-        const { isAuthenticated } = this.props;
+    componentDidMount () {
+        this.props.initializeAsync();
+    }
 
-        return isAuthenticated ? <Private />: <Public />;
+    render () {
+        const { isAuthenticated, isInitialized } = this.props;
+
+        if (!isInitialized) {
+            return <Loading />;
+        }
+
+        return isAuthenticated ? <Private /> : <Public />;
     }
 }

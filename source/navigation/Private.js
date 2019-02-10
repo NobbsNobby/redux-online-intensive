@@ -18,6 +18,6 @@ export default class Private extends Component {
                 <Route component = { NewPassword } path = { book.newPassword } />
                 <Redirect to = { book.feed } />
             </Switch>
-        )
+        );
     }
 }
