@@ -1,5 +1,5 @@
 export { authenticate } from './authenticate';
+export { initialize } from './initialize';
 export { signup } from './signup';
 export { login } from './login';
-export { logot } from './logout';
-export { initialize } from './initialize';
+export { logout } from './logout';
