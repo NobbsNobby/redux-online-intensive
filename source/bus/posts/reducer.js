@@ -1,5 +1,5 @@
 // Core
-import { fromJS, List } from 'immutable';
+import { fromJS, List, findIndex } from 'immutable';
 
 // Types
 import { types } from './types';
@@ -19,11 +19,22 @@ export const postsReducer = (state = initialState, action) => {
                 state.findIndex((post) => {
                     return post.get('id') === action.payload.postId;
                 }),
-                'likes'],
-            (likes) => {
-                return likes.unshift(action.payload.liker);
-            }
-            );
+                'likes'], (likes) => likes.unshift(action.payload.liker));
+        case types.UNLIKE_POST: {
+            const likedPost = state.find((post) => {
+                return post.get('id') === action.payload.postId;
+            });
+
+            return state.deleteIn([
+                state.findIndex((post) => {
+                    return post.get('id') === action.payload.postId;
+                }),
+                'likes',
+                likedPost.get('likes').findIndex((liker) => {
+                    return liker.get('id') === action.payload.liker.get('id');
+                })
+            ]);
+        }
         case types.CLEAR_POSTS:
             return state.clear();
         default:
