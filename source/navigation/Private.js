@@ -21,6 +21,7 @@ export default class Private extends Component {
 
     componentWillUnmount () {
         socket.removeListener('create');
+        socket.removeListener('remove');
     }
 
     render () {
