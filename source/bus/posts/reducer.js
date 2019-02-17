@@ -1,5 +1,5 @@
 // Core
-import { fromJS, List, findIndex } from 'immutable';
+import { fromJS, List } from 'immutable';
 
 // Types
 import { types } from './types';
