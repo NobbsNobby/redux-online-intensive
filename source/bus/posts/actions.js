@@ -24,13 +24,18 @@ export const postsActions = {
             type: types.CLEAR_POSTS,
         };
     },
-    removePost: (id) => {
+    removePost: (postId) => {
         return {
             type:    types.REMOVE_POST,
-            payload: id,
+            payload: postId,
         };
     },
-
+    likePost: (likedPostData) => {
+        return {
+            type:    types.LIKE_POST,
+            payload: likedPostData,
+        };
+    },
     // Async
     fetchPostsAsync: () => {
         return {
@@ -44,10 +49,16 @@ export const postsActions = {
             payload: comment,
         };
     },
-    removePostAsync: (id) => {
+    removePostAsync: (postId) => {
         return {
             type:    types.REMOVE_POST_ASYNC,
-            payload: id,
+            payload: postId,
+        };
+    },
+    likePostAsync: (postId) => {
+        return {
+            type:    types.LIKE_POST_ASYNC,
+            payload: postId,
         };
     },
 };
