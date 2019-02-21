@@ -19,9 +19,11 @@ export function* likePost ({ payload: postId }) {
 
         const liker = yield select((state) => state.profile.removeAll(['token', 'avatar']));
 
+        console.log('-> liker', liker);
+        console.log('-> postId', postId);
         yield put(postsActions.likePost({ liker, postId }));
     } catch (error) {
-        yield put(uiActions.emitError(error, 'removePost worker'));
+        yield put(uiActions.emitError(error, 'likePost worker'));
     } finally {
         yield put(uiActions.stopFetching());
     }
