@@ -24,8 +24,6 @@ export const postsReducer = (state = initialState, action) => {
                 ],
                 (likes) => likes.unshift(action.payload.liker));
         case types.UNLIKE_POST:
-            console.log('-> action.payload', action.payload);
-
             return state.updateIn(
                 [
                     state.findIndex((post) => {
