@@ -55,6 +55,6 @@ export default class App extends Component {
             return <Loading />;
         }
 
-        return isAuthenticated ? <Private listenPosts = { listenPosts  } /> : <Public />;
+        return isAuthenticated ? <Private listenPosts = { listenPosts } /> : <Public />;
     }
 }

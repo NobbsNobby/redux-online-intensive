@@ -8,19 +8,30 @@ import cx from 'classnames';
 import Styles from './styles.m.css';
 import { newPassword } from '../../bus/forms/shapes';
 import { book } from '../../navigation/book';
+import { connect } from 'react-redux';
+import { profileActions } from '../../bus/profile/actions';
+
+const mapStateToProps = (state) => {
+    return {
+        isFetching: state.ui.get('isFetching'),
+    };
+};
+
+const mapDispatchToProps = {
+    updatePasswordAsync: profileActions.updatePasswordAsync,
+};
+
+@connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
 
 export default class NewPassword extends Component {
-    static defaultProps = {
-        // State
-        isFetching: false,
-
-        // Actions
-        updatePasswordAsync: () => {},
-    };
 
     _submitPassword = (passwordData) => {
         const { updatePasswordAsync } = this.props;
 
+        console.log('-> passwordData', passwordData);
         updatePasswordAsync(passwordData);
     };
 
