@@ -31,7 +31,6 @@ export default class NewPassword extends Component {
     _submitPassword = (passwordData) => {
         const { updatePasswordAsync } = this.props;
 
-        console.log('-> passwordData', passwordData);
         updatePasswordAsync(passwordData);
     };
 

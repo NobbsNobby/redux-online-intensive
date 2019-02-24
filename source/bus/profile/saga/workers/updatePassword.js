@@ -16,9 +16,7 @@ export function* updatePassword ({ payload: {
             oldPassword,
             newPassword,
         }]);
-        const { data: updatePasswordInfo, message } = yield apply(response, response.json);
-
-        console.log('-> updatePasswordInfo', updatePasswordInfo);
+        // const { data: updatePasswordInfo, message } = yield apply(response, response.json);
 
         if (response.status !== 200) {
             throw new Error(message);
