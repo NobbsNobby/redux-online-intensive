@@ -47,6 +47,21 @@ const fetchResponseFail400 = {
 
 const url = 'https://www.url.com';
 
+const usersData = [
+    {
+        avatar:    "https://lab.lectrum.io/redux/api/image/algroktvgc9z/RwzytC7tf7.jpg",
+        firstName: "Vasilii",
+        id:        "5c595bc5cf749ff16649a03e",
+        lastName:  "Shubin",
+    },
+    {
+        avatar:    "https://lab.lectrum.io/redux/api/image/algroktvgc9z/placeholder.jpg",
+        firstName: "Elon1",
+        id:        "5c59b969cf749f576749a044",
+        lastName:  "Musk1",
+    }
+];
+
 global.__ = {
     userProfile,
     errorMessage,
@@ -59,6 +74,7 @@ global.__ = {
     fetchResponseFail400,
     credentials,
     url,
+    usersData,
 };
 global.fetch = fetch;
 global.localStorage = new LocalStorage();
