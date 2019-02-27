@@ -16,12 +16,11 @@ export function* updatePassword ({ payload: {
             oldPassword,
             newPassword,
         }]);
-        // const { data: updatePasswordInfo, message } = yield apply(response, response.json);
 
         if (response.status !== 200) {
             throw new Error(message);
         }
-        // Выкидываем из аккаунта при успешном изменении пароля . Это логичнее вроде
+
         yield put(authActions.logoutAsync());
     } catch (error) {
         yield put(profileActions.emitError(error, 'updateAvatar worker'));

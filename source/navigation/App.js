@@ -45,7 +45,7 @@ export default class App extends Component {
 
     componentWillUnmount () {
         socket.removeListener('connect');
-        socket.removeListener('disconnect');
+        // socket.removeListener('disconnect');
     }
 
     render () {
