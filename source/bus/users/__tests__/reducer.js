@@ -15,7 +15,7 @@ describe('users reducer:', () => {
     });
     test('should handle FILL_USERS action', () => {
         expect(usersReducer(void 0, usersActions.fillUsers(__.usersData)))
-            .toEqual(initialState.merge(fromJS(__.usersData)));
+            .toEqual(fromJS(__.usersData));
     });
     test('should handle CLEAR_USERS action', () => {
         expect(usersReducer(void 0, usersActions.clearUsers())).toEqual(initialState);
