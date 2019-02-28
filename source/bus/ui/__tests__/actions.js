@@ -15,6 +15,6 @@ describe('ui actions:', () => {
         expect(uiActions.setOfflineState()).toMatchSnapshot();
     });
     test('emitError', () => {
-        expect(uiActions.emitError(__.error, 'ui error')).toMatchSnapshot();
+        expect(uiActions.emitError(__.error)).toMatchSnapshot();
     });
 });
