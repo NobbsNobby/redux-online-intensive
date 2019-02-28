@@ -5,7 +5,6 @@ import { cloneableGenerator } from "redux-saga/utils";
 import { api } from "../../../REST";
 import { uiActions } from "../../ui/actions";
 import { usersActions } from "../actions";
-import { authActions } from "../../auth/actions";
 import { fetchUsers } from "../saga/workers/fetchUsers";
 
 const usersAction = usersActions.fetchUsersAsync(__.usersData);
